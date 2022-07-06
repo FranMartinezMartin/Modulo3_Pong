@@ -6,9 +6,11 @@ using UnityEngine.SceneManagement;
 public class PauseGame : MonoBehaviour
 {
     [SerializeField] GameState gameState = GameState.Ingame;
-    [SerializeField] GameObject pauseSreen;
+    [SerializeField] GameObject pauseScreen;
 
-
+    private void Start() {
+        gameState = GameState.Ingame;
+    }
 
     private void Update() {
         if (Input.GetKeyDown(KeyCode.Escape)){
@@ -24,19 +26,19 @@ public class PauseGame : MonoBehaviour
     }
 
     private void pauseGame(){
-        pauseSreen.SetActive(true);
+        pauseScreen.SetActive(true);
         Time.timeScale = 0;
         gameState = GameState.Pause;
     }
 
     public void resumeGame(){
-        pauseSreen.SetActive(false);
+        pauseScreen.SetActive(false);
         Time.timeScale = 1;
         gameState = GameState.Ingame;
     }
 
     public void mainMenu(){
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("MainMenu");    
     }
 
     public void exitGame(){

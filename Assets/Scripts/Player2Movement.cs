@@ -4,13 +4,10 @@ using UnityEngine;
 
 public class Player2Movement : MonoBehaviour
 {
-    private float speed = 2f;
+    private float speed = 4f;
 
     private bool move_up = false;
     private bool move_down = false;
-
-    void Start() {
-    }
 
     void Update()
     {
@@ -27,7 +24,9 @@ public class Player2Movement : MonoBehaviour
         } else if(Input.GetKeyUp(KeyCode.DownArrow)){
             move_down = false;
         }
-        move();
+        if (Time.timeScale >= 0) {
+            move();
+        }
     }
 
     private void move(){

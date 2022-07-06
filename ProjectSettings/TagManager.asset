@@ -9,6 +9,7 @@ TagManager:
   - top_field
   - bottom_field
   - side_field
+  - ball
   layers:
   - Default
   - TransparentFX
